@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "../../node_modules/tailwindcss/index.css";
+
+:root {
+  --background: #06080f;
+  --foreground: #e7edf8;
+  --surface: #0f1524;
+  --surface-soft: #16203a;
+  --brand: #CDA349;
+  --brand-soft: #e0c47a;
+  --brand-border: rgba(205, 163, 73, 0.18);
+  --font-sans: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, sans-serif;
+  --font-display: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #070a13;
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* Offset anchors for sticky header (header ~70px + generous breathing room
+   so section titles aren't kissing the nav after a click). */
+[id] {
+  scroll-margin-top: 130px;
+}
+
+/* EVIO-style grid background for tech sections */
+.grid-bg {
+  position: relative;
+}
+.grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(205, 163, 73, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205, 163, 73, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* Sharp button base — EVIO style */
+.btn-sharp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid transparent;
+  padding: 0.78rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 220ms ease;
+  cursor: pointer;
+}
+.btn-sharp.btn-primary {
+  background: var(--brand);
+  color: #0a0c12;
+}
+.btn-sharp.btn-primary:hover {
+  filter: brightness(1.15);
+}
+.btn-sharp.btn-outline {
+  border-color: var(--brand-border);
+  color: var(--foreground);
+  background: rgba(205, 163, 73, 0.05);
+}
+.btn-sharp.btn-outline:hover {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
