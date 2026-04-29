@@ -103,7 +103,7 @@ export default async function Home() {
               Performance &nbsp;·&nbsp; Precision &nbsp;·&nbsp; Integrity
             </p>
             <h1 className="max-w-3xl font-[var(--font-display)] text-[2.25rem] leading-[1.08] text-white sm:text-5xl sm:leading-[1.05] md:text-6xl">
-              Private aviation, <br className="hidden md:block" />
+              Private Aviation, <br className="hidden md:block" />
               <span className="text-[var(--brand)]">arranged with precision.</span>
             </h1>
             <p className="max-w-2xl text-sm text-slate-200/80 sm:text-base md:text-lg">
