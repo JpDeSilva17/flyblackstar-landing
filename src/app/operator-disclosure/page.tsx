@@ -10,50 +10,67 @@ export default function OperatorDisclosure() {
   return (
     <div className="min-h-screen text-slate-100">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#070b14]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-3">
-            <img src="/black-star-icon.png" alt="" className="h-9 w-auto" />
-            <div className="leading-tight">
-              <p className="font-[var(--font-display)] text-xl tracking-wide text-white">
-                Black Star Aviation
-              </p>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-[var(--brand)]">
-                Charter Brokerage
-              </p>
-            </div>
-          </a>
-          <nav className="hidden gap-6 font-[var(--font-mono)] text-[13px] uppercase tracking-[1.4px] text-slate-300/80 md:flex">
-            <a href="/#empty-legs" className="pb-1 transition hover:text-[var(--brand)]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex items-center justify-between gap-3 py-3 sm:py-4">
+            <a href="/" className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <img src="/black-star-icon.png" alt="" className="h-7 w-auto sm:h-9" />
+              <div className="min-w-0 leading-tight">
+                <p className="truncate font-[var(--font-display)] text-base tracking-wide text-white sm:text-xl">
+                  Black Star Aviation
+                </p>
+                <p className="truncate text-[9px] uppercase tracking-[0.28em] text-[var(--brand)] sm:text-[10px] sm:tracking-[0.35em]">
+                  Charter Brokerage
+                </p>
+              </div>
+            </a>
+            <nav className="hidden gap-6 font-[var(--font-mono)] text-[13px] uppercase tracking-[1.4px] text-slate-300/80 md:flex">
+              <a href="/#empty-legs" className="pb-1 transition hover:text-[var(--brand)]">
+                Empty Legs
+              </a>
+              <a href="/#quote" className="pb-1 transition hover:text-[var(--brand)]">
+                On-Demand
+              </a>
+              <a href="/#chat" className="pb-1 transition hover:text-[var(--brand)]">
+                Concierge
+              </a>
+            </nav>
+            <a href="/#quote" className="btn-sharp btn-primary shrink-0 whitespace-nowrap">
+              <span className="hidden sm:inline">Start a Quote →</span>
+              <span className="sm:hidden">Quote →</span>
+            </a>
+          </div>
+          <nav className="-mx-4 flex items-center gap-5 overflow-x-auto border-t border-white/5 px-4 py-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[1.5px] text-slate-300/70 md:hidden">
+            <a href="/#empty-legs" className="whitespace-nowrap transition hover:text-[var(--brand)]">
               Empty Legs
             </a>
-            <a href="/#quote" className="pb-1 transition hover:text-[var(--brand)]">
+            <a href="/#quote" className="whitespace-nowrap transition hover:text-[var(--brand)]">
               On-Demand
             </a>
-            <a href="/#chat" className="pb-1 transition hover:text-[var(--brand)]">
+            <a href="/#chat" className="whitespace-nowrap transition hover:text-[var(--brand)]">
               Concierge
             </a>
+            <a href="/operator-disclosure" className="whitespace-nowrap text-[var(--brand)]">
+              Operators
+            </a>
           </nav>
-          <a href="/#quote" className="btn-sharp btn-primary">
-            Start a Quote →
-          </a>
         </div>
       </header>
 
       <section className="grid-bg relative border-b border-[var(--brand-border)]">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-          <p className="font-[var(--font-mono)] text-[11px] uppercase tracking-[3px] text-[var(--brand)]">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 md:py-24">
+          <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[2.5px] text-[var(--brand)] sm:text-[11px] sm:tracking-[3px]">
             Legal &nbsp;·&nbsp; Compliance
           </p>
-          <h1 className="mt-4 max-w-3xl font-[var(--font-display)] text-5xl leading-[1.05] text-white md:text-6xl">
+          <h1 className="mt-4 max-w-3xl font-[var(--font-display)] text-[2.25rem] leading-[1.08] text-white sm:text-5xl sm:leading-[1.05] md:text-6xl">
             Operator Disclosure
           </h1>
         </div>
       </section>
 
-      <main className="grid-bg mx-auto flex max-w-7xl flex-col gap-12 px-6 py-12 md:py-16">
+      <main className="grid-bg mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 sm:gap-12 sm:px-6 sm:py-12 md:py-16">
 
         <section className="max-w-3xl space-y-5">
-          <h2 className="font-[var(--font-display)] text-3xl text-white">
+          <h2 className="font-[var(--font-display)] text-2xl text-white sm:text-3xl">
             Broker Status
           </h2>
           <p className="text-slate-300/90 leading-relaxed">
@@ -67,7 +84,7 @@ export default function OperatorDisclosure() {
         <div className="h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-25" />
 
         <section className="max-w-3xl space-y-5">
-          <h2 className="font-[var(--font-display)] text-3xl text-white">
+          <h2 className="font-[var(--font-display)] text-2xl text-white sm:text-3xl">
             Safety Standards
           </h2>
           <p className="text-slate-300/90 leading-relaxed">
@@ -78,14 +95,14 @@ export default function OperatorDisclosure() {
         <div className="h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-25" />
 
         <section className="max-w-3xl space-y-5">
-          <h2 className="font-[var(--font-display)] text-3xl text-white">
+          <h2 className="font-[var(--font-display)] text-2xl text-white sm:text-3xl">
             DOT Compliance
           </h2>
           <p className="text-slate-300/90 leading-relaxed">
             In accordance with 14 CFR Part 295 and DOT guidance, Black Star Aviation LLC makes the following disclosures:
           </p>
           <div className="space-y-4">
-            <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-5">
+            <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-4 sm:p-5">
               <p className="mb-1 font-[var(--font-mono)] text-[11px] uppercase tracking-[1.5px] text-[var(--brand)]">
                 Disclosure 1
               </p>
@@ -93,7 +110,7 @@ export default function OperatorDisclosure() {
                 Black Star Aviation LLC is not a direct air carrier. Black Star Aviation LLC is an air charter broker as defined by the Department of Transportation.
               </p>
             </div>
-            <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-5">
+            <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-4 sm:p-5">
               <p className="mb-1 font-[var(--font-mono)] text-[11px] uppercase tracking-[1.5px] text-[var(--brand)]">
                 Disclosure 2
               </p>
@@ -101,7 +118,7 @@ export default function OperatorDisclosure() {
                 All air transportation arranged by Black Star Aviation LLC is provided by FAA-certificated and DOT-registered direct air carriers that will be identified to the customer prior to the commencement of any flight.
               </p>
             </div>
-            <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-5">
+            <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-4 sm:p-5">
               <p className="mb-1 font-[var(--font-mono)] text-[11px] uppercase tracking-[1.5px] text-[var(--brand)]">
                 Disclosure 3
               </p>
@@ -115,7 +132,7 @@ export default function OperatorDisclosure() {
         <div className="h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-25" />
 
         <section className="max-w-3xl space-y-5">
-          <h2 className="font-[var(--font-display)] text-3xl text-white">
+          <h2 className="font-[var(--font-display)] text-2xl text-white sm:text-3xl">
             Consumer Protection
           </h2>
           <p className="text-slate-300/90 leading-relaxed">
@@ -126,13 +143,13 @@ export default function OperatorDisclosure() {
         <div className="h-px bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-25" />
 
         <section className="max-w-3xl space-y-5">
-          <h2 className="font-[var(--font-display)] text-3xl text-white">
+          <h2 className="font-[var(--font-display)] text-2xl text-white sm:text-3xl">
             Contact
           </h2>
           <p className="text-slate-300/90 leading-relaxed">
             For questions about this disclosure or Black Star Aviation&apos;s broker status, contact us at:
           </p>
-          <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-5">
+          <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] p-4 sm:p-5">
             <p className="font-[var(--font-mono)] text-[13px] leading-relaxed text-slate-200">
               Black Star Aviation LLC<br />
               Henderson, Nevada<br />
@@ -150,19 +167,19 @@ export default function OperatorDisclosure() {
       </main>
 
       <footer className="border-t border-[var(--brand-border)] bg-[#060a12]">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 py-10 md:flex-row md:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-8 sm:px-6 sm:py-10 md:flex-row md:justify-between">
           <div className="flex items-center gap-3">
             <img src="/black-star-icon.png" alt="" className="h-8 w-auto" />
             <div className="leading-tight">
               <p className="font-[var(--font-display)] text-lg tracking-wide text-white">
                 Black Star Aviation
               </p>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--brand)]">
+              <p className="text-[9px] uppercase tracking-[0.28em] text-[var(--brand)] sm:text-[10px] sm:tracking-[0.3em]">
                 Performance · Precision · Integrity
               </p>
             </div>
           </div>
-          <div className="text-center text-xs text-slate-400/60 md:text-right">
+          <div className="text-center text-[11px] text-slate-400/60 sm:text-xs md:text-right">
             <p>Henderson, Nevada</p>
             <p className="mt-1">&copy; {new Date().getFullYear()} Black Star Aviation LLC. All rights reserved.</p>
             <p className="mt-1">

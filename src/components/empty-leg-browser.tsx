@@ -335,16 +335,20 @@ export function EmptyLegBrowser({ legs }: { legs: EmptyLeg[] }) {
 
   return (
     <div className="space-y-6">
-      <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.03)] px-4 py-3">
-        <div className="flex flex-wrap items-center gap-2 xl:flex-nowrap">
+      <div className="border border-[var(--brand-border)] bg-[rgba(205,163,73,0.03)] px-3 py-3 sm:px-4">
+        {/* Filter grid: 1 column on phones (each filter full width), 2 on
+            small tablets, then a full row on xl+. Each filter wrapper stays
+            relative so the dropdown anchors correctly inside its own grid
+            cell instead of stretching unpredictably. */}
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:flex xl:flex-nowrap xl:items-center">
           <div
-            className="relative"
+            className="relative xl:flex-1"
             onBlur={() => {
               setTimeout(() => setFromOpen(false), 100);
             }}
           >
             <input
-              className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 text-sm outline-none transition focus:border-[var(--brand)]"
+              className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2.5 sm:py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 outline-none transition focus:border-[var(--brand)]"
               value={fromQuery}
               onFocus={() => setFromOpen(true)}
               onChange={(e) => {
@@ -399,13 +403,13 @@ export function EmptyLegBrowser({ legs }: { legs: EmptyLeg[] }) {
             )}
           </div>
           <div
-            className="relative"
+            className="relative xl:flex-1"
             onBlur={() => {
               setTimeout(() => setToOpen(false), 100);
             }}
           >
             <input
-              className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 text-sm outline-none transition focus:border-[var(--brand)]"
+              className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2.5 sm:py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 outline-none transition focus:border-[var(--brand)]"
               value={toQuery}
               onFocus={() => setToOpen(true)}
               onChange={(e) => {
@@ -460,16 +464,16 @@ export function EmptyLegBrowser({ legs }: { legs: EmptyLeg[] }) {
             )}
           </div>
 
-          <div className="relative">
+          <div className="relative xl:flex-1">
             <button
               type="button"
               onClick={() => setCalendarOpen((v) => !v)}
-              className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] text-left text-sm outline-none transition hover:border-[var(--brand)]/70"
+              className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2.5 sm:py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] text-left outline-none transition hover:border-[var(--brand)]/70"
             >
               {dateKey ? `Date: ${dateKey}` : "Any date"}
             </button>
             {calendarOpen && (
-              <div className="absolute z-20 mt-2 w-[290px] border border-[var(--brand-border)] bg-[rgba(12,19,35,0.98)] p-3 shadow-2xl">
+              <div className="absolute right-0 z-20 mt-2 w-[min(290px,calc(100vw-2rem))] border border-[var(--brand-border)] bg-[rgba(12,19,35,0.98)] p-3 shadow-2xl xl:left-0 xl:right-auto">
                 <div className="mb-2 flex items-center justify-between">
                   <button
                     type="button"
@@ -545,9 +549,9 @@ export function EmptyLegBrowser({ legs }: { legs: EmptyLeg[] }) {
             )}
           </div>
 
-          <div className="relative">
+          <div className="relative xl:flex-1">
             <select
-              className="w-full appearance-none border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 text-sm outline-none transition focus:border-[var(--brand)]"
+              className="w-full appearance-none border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2.5 sm:py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 outline-none transition focus:border-[var(--brand)]"
               value={paxCount}
               onChange={(e) => setPaxCount(e.target.value)}
             >
@@ -562,9 +566,9 @@ export function EmptyLegBrowser({ legs }: { legs: EmptyLeg[] }) {
             </span>
           </div>
 
-          <div className="relative">
+          <div className="relative xl:flex-1">
             <select
-              className="w-full appearance-none border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 text-sm outline-none transition focus:border-[var(--brand)]"
+              className="w-full appearance-none border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2.5 sm:py-2 font-[var(--font-mono)] text-[12px] tracking-[0.5px] pr-9 outline-none transition focus:border-[var(--brand)]"
               value={priceBand}
               onChange={(e) => setPriceBand(e.target.value)}
             >
@@ -579,16 +583,20 @@ export function EmptyLegBrowser({ legs }: { legs: EmptyLeg[] }) {
             </span>
           </div>
 
-          <span className="shrink-0 font-[var(--font-mono)] text-[11px] tabular-nums tracking-[0.5px] text-slate-500">
-            {filtered.length}/{legs.length}
-          </span>
-          <button
-            className="ml-auto shrink-0 px-3 py-2 font-[var(--font-mono)] text-[11px] uppercase tracking-[1px] text-slate-400 transition hover:text-[var(--brand)]"
-            onClick={clearFilters}
-            type="button"
-          >
-            Clear
-          </button>
+          {/* Count + Clear share a single row on mobile (col-span-full)
+              and trail the filters inline on xl+. */}
+          <div className="col-span-full flex items-center justify-between border-t border-[var(--brand-border)]/50 pt-2 sm:col-span-2 xl:col-span-1 xl:flex-none xl:border-t-0 xl:pt-0">
+            <span className="font-[var(--font-mono)] text-[11px] tabular-nums tracking-[0.5px] text-slate-500">
+              {filtered.length} of {legs.length}
+            </span>
+            <button
+              className="px-3 py-1.5 font-[var(--font-mono)] text-[11px] uppercase tracking-[1px] text-slate-400 transition hover:text-[var(--brand)]"
+              onClick={clearFilters}
+              type="button"
+            >
+              Clear
+            </button>
+          </div>
         </div>
       </div>
 

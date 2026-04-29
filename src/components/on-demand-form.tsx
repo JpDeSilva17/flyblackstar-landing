@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import type React from "react";
 
 const inputClass =
-  "w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-4 py-3 font-[var(--font-mono)] text-[12px] tracking-[0.5px] text-slate-100 placeholder:text-slate-400/50 outline-none transition focus:border-[var(--brand)] focus:bg-[rgba(205,163,73,0.07)]";
+  "w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2.5 sm:px-4 sm:py-3 font-[var(--font-mono)] text-[12px] tracking-[0.5px] text-slate-100 placeholder:text-slate-400/50 outline-none transition focus:border-[var(--brand)] focus:bg-[rgba(205,163,73,0.07)]";
 
 function toMonthLabel(date: Date) {
   return new Intl.DateTimeFormat("en-US", {
@@ -111,14 +111,14 @@ function CalendarPicker({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-4 py-3 font-[var(--font-mono)] text-[12px] tracking-[0.5px] text-left outline-none transition hover:border-[var(--brand)]/70"
+        className="w-full border border-[var(--brand-border)] bg-[rgba(205,163,73,0.04)] px-3 py-2.5 sm:px-4 sm:py-3 font-[var(--font-mono)] text-[12px] tracking-[0.5px] text-left outline-none transition hover:border-[var(--brand)]/70"
       >
         <span className={value ? "text-slate-100" : "text-slate-400/50"}>
           {value ? formatDateDisplay(value) : placeholder}
         </span>
       </button>
       {open && (
-        <div className="absolute z-20 mt-2 w-[290px] border border-[var(--brand-border)] bg-[rgba(12,19,35,0.98)] p-3 shadow-2xl">
+        <div className="absolute z-20 mt-2 w-[min(290px,calc(100vw-2rem))] border border-[var(--brand-border)] bg-[rgba(12,19,35,0.98)] p-3 shadow-2xl">
           <div className="mb-2 flex items-center justify-between">
             <button
               type="button"
@@ -276,7 +276,7 @@ export function OnDemandForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2">
+    <form onSubmit={handleSubmit} className="grid gap-3.5 sm:gap-5 md:grid-cols-2">
       <input type="hidden" name="departure" value={departureKey} />
       {tripType === "round_trip" && (
         <input type="hidden" name="returnDate" value={returnKey} />
@@ -292,7 +292,7 @@ export function OnDemandForm() {
 
       {/* Trip type toggle */}
       <div className="md:col-span-2">
-        <div className="inline-flex border border-[var(--brand-border)]">
+        <div className="inline-flex w-full border border-[var(--brand-border)] sm:w-auto">
           {(
             [
               { value: "one_way", label: "One Way" },
@@ -305,7 +305,7 @@ export function OnDemandForm() {
                 key={opt.value}
                 type="button"
                 onClick={() => handleTripTypeChange(opt.value)}
-                className={`px-5 py-2 font-[var(--font-mono)] text-[11px] uppercase tracking-[1px] transition ${
+                className={`flex-1 px-4 py-2.5 font-[var(--font-mono)] text-[11px] uppercase tracking-[1px] transition sm:flex-none sm:px-5 sm:py-2 ${
                   selected
                     ? "bg-[var(--brand)] text-slate-950"
                     : "bg-transparent text-slate-300 hover:text-slate-100"
@@ -387,7 +387,7 @@ export function OnDemandForm() {
           })}
         </div>
         {aircraftCategory && (
-          <div className="mt-3 border-l-2 border-[var(--brand)] bg-[rgba(205,163,73,0.06)] px-4 py-3 text-[12px] leading-relaxed text-slate-200/90">
+          <div className="mt-3 border-l-2 border-[var(--brand)] bg-[rgba(205,163,73,0.06)] px-3 py-2.5 text-[12px] leading-relaxed text-slate-200/90 sm:px-4 sm:py-3">
             {aircraftCategories.find((c) => c.value === aircraftCategory)?.description}
           </div>
         )}
@@ -427,7 +427,7 @@ export function OnDemandForm() {
       <div>{/* spacer for grid alignment */}</div>
 
       <button
-        className="btn-sharp btn-primary md:col-span-2 w-full py-4 disabled:opacity-60"
+        className="btn-sharp btn-primary md:col-span-2 w-full py-3.5 sm:py-4 disabled:opacity-60"
         type="submit"
         disabled={status === "loading"}
       >
